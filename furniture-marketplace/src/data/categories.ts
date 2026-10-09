@@ -1,0 +1,88 @@
+import type { Category } from '../types';
+
+export const categories: Category[] = [
+  {
+    id: 'cat-sofas',
+    name: 'Sofas',
+    slug: 'sofas',
+    image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop',
+    productCount: 12,
+  },
+  {
+    id: 'cat-beds',
+    name: 'Beds',
+    slug: 'beds',
+    image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600&h=400&fit=crop',
+    productCount: 8,
+  },
+  {
+    id: 'cat-dining',
+    name: 'Dining',
+    slug: 'dining',
+    image: 'https://images.unsplash.com/photo-1538688525198-9b88f6f53126?w=600&h=400&fit=crop',
+    productCount: 6,
+  },
+  {
+    id: 'cat-tables',
+    name: 'Tables',
+    slug: 'tables',
+    image: 'https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=600&h=400&fit=crop',
+    productCount: 7,
+  },
+  {
+    id: 'cat-chairs',
+    name: 'Chairs',
+    slug: 'chairs',
+    image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop',
+    productCount: 8,
+  },
+  {
+    id: 'cat-wardrobes',
+    name: 'Wardrobes',
+    slug: 'wardrobes',
+    image: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=600&h=400&fit=crop',
+    productCount: 3,
+  },
+  {
+    id: 'cat-tv',
+    name: 'TV Stands',
+    slug: 'tv-stands',
+    image: 'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=600&h=400&fit=crop',
+    productCount: 3,
+  },
+  {
+    id: 'cat-office',
+    name: 'Office',
+    slug: 'office',
+    image: 'https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=600&h=400&fit=crop',
+    productCount: 4,
+  },
+  {
+    id: 'cat-outdoor',
+    name: 'Outdoor',
+    slug: 'outdoor',
+    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=400&fit=crop',
+    productCount: 6,
+  },
+  {
+    id: 'cat-mattresses',
+    name: 'Mattresses',
+    slug: 'mattresses',
+    image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600&h=400&fit=crop',
+    productCount: 3,
+  },
+  {
+    id: 'cat-kids',
+    name: 'Kids',
+    slug: 'kids',
+    image: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=600&h=400&fit=crop',
+    productCount: 2,
+  },
+  {
+    id: 'cat-decor',
+    name: 'Décor',
+    slug: 'decor',
+    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&h=400&fit=crop',
+    productCount: 5,
+  },
+];

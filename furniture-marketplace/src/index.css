@@ -1,0 +1,168 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ivory: #FAF7F2;
+  --color-cream: #F5F0E8;
+  --color-sand: #E8DFD0;
+  --color-beige: #D4C4A8;
+  --color-brown: #8B5E3C;
+  --color-brown-dark: #6B4423;
+  --color-charcoal: #1C1917;
+  --color-stone: #44403C;
+  --color-muted: #78716C;
+  --color-gold: #C4A574;
+  --color-gold-light: #E8D5B5;
+  --color-success: #4A7C59;
+  --color-success-light: #E8F0EB;
+  --color-error: #B91C1C;
+  --color-error-light: #FEF2F2;
+  --color-warning: #B45309;
+  --color-warning-light: #FFFBEB;
+  --color-info: #1E40AF;
+  --color-info-light: #EFF6FF;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Playfair Display", Georgia, serif;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+
+  --shadow-soft: 0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px -1px rgb(0 0 0 / 0.04);
+  --shadow-card: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+  --shadow-elevated: 0 10px 15px -3px rgb(0 0 0 / 0.06), 0 4px 6px -4px rgb(0 0 0 / 0.06);
+  --shadow-premium: 0 20px 25px -5px rgb(0 0 0 / 0.08), 0 8px 10px -6px rgb(0 0 0 / 0.06);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-ivory text-charcoal antialiased;
+    font-family: var(--font-sans);
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .nav-link-shine {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  }
+
+  .nav-link-shine::after {
+    position: absolute;
+    z-index: -1;
+    top: -50%;
+    left: 0;
+    width: 35%;
+    height: 200%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgb(255 255 255 / 0.7),
+      transparent
+    );
+    content: "";
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-150%) skewX(-20deg);
+    animation: nav-link-shine 3s ease-in-out infinite;
+  }
+
+  @keyframes nav-link-shine {
+    10% {
+      opacity: 0.8;
+    }
+    45%,
+    100% {
+      opacity: 0;
+      transform: translateX(400%) skewX(-20deg);
+    }
+  }
+
+  .scroll-cue svg {
+    animation: scroll-cue-bounce 1.6s ease-in-out infinite;
+  }
+
+  @keyframes scroll-cue-bounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(6px);
+    }
+  }
+
+  .wishlist-heart-pump {
+    transform-origin: center;
+    animation: wishlist-heartbeat 1.4s ease-in-out infinite;
+  }
+
+  .product-showroom-image::after {
+    position: absolute;
+    inset: -40% auto -40% -70%;
+    width: 45%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgb(255 255 255 / 0.34),
+      transparent
+    );
+    content: "";
+    pointer-events: none;
+    transform: translateX(-120%) rotate(18deg);
+    transition: transform 850ms ease;
+  }
+
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .product-showroom-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .product-showroom-card:hover .product-showroom-image::after {
+      transform: translateX(440%) rotate(18deg);
+    }
+  }
+
+  @keyframes wishlist-heartbeat {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    12% {
+      transform: scale(1.18);
+    }
+    24% {
+      transform: scale(1);
+    }
+    36% {
+      transform: scale(1.12);
+    }
+    48% {
+      transform: scale(1);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nav-link-shine::after,
+    .scroll-cue svg,
+    .wishlist-heart-pump,
+    .product-showroom-card,
+    .product-showroom-image::after {
+      animation: none;
+      transition: none;
+    }
+  }
+}

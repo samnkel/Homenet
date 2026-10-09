@@ -1,0 +1,360 @@
+import type { Business } from '../types';
+
+export const businesses: Business[] = [
+  {
+    id: 'biz-001',
+    name: 'ABC Furniture',
+    slug: 'abc-furniture',
+    ownerId: 'user-s1',
+    description: 'Premium furniture crafted for modern South African homes. Family-owned since 1998, specialising in sofas, dining sets and bedroom suites with free local delivery across KwaZulu-Natal.',
+    logo: 'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=200&h=200&fit=crop',
+    coverImage: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1200&h=400&fit=crop',
+    rating: 4.7,
+    reviewCount: 214,
+    productCount: 126,
+    location: {
+      city: 'Durban',
+      suburb: 'Umhlanga',
+      address: '42 Lighthouse Road, Umhlanga Rocks',
+    },
+    distanceKm: 2.4,
+    verified: true,
+    status: 'verified',
+    deliveryAvailable: true,
+    deliveryAreas: ['Durban', 'Umhlanga', 'Ballito', 'Pinetown', 'Westville'],
+    openingHours: [
+      { day: 'Mon–Fri', open: '08:00', close: '17:00' },
+      { day: 'Sat', open: '09:00', close: '14:00' },
+      { day: 'Sun', open: 'Closed', close: '' },
+    ],
+    phone: '+27 31 555 0123',
+    email: 'hello@abcfurniture.co.za',
+    responseTime: 'Usually replies within 2 hours',
+    joinedAt: '2023-03-15',
+  },
+  {
+    id: 'biz-002',
+    name: 'Cape Craft Interiors',
+    slug: 'cape-craft-interiors',
+    ownerId: 'user-s2',
+    description: 'Handcrafted solid wood furniture inspired by Cape Dutch heritage. Sustainable timber, timeless designs, and exceptional finish quality.',
+    logo: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=200&h=200&fit=crop',
+    coverImage: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1200&h=400&fit=crop',
+    rating: 4.9,
+    reviewCount: 89,
+    productCount: 64,
+    location: {
+      city: 'Cape Town',
+      suburb: 'Woodstock',
+      address: '15 Albert Road, Woodstock',
+    },
+    distanceKm: 12.1,
+    verified: true,
+    status: 'verified',
+    deliveryAvailable: true,
+    deliveryAreas: ['Cape Town', 'Stellenbosch', 'Paarl', 'Somerset West'],
+    openingHours: [
+      { day: 'Mon–Fri', open: '09:00', close: '17:30' },
+      { day: 'Sat', open: '09:00', close: '13:00' },
+      { day: 'Sun', open: 'Closed', close: '' },
+    ],
+    phone: '+27 21 555 0489',
+    email: 'studio@capecraft.co.za',
+    responseTime: 'Usually replies within 4 hours',
+    joinedAt: '2023-07-22',
+  },
+  {
+    id: 'biz-003',
+    name: 'Jozi Living Co',
+    slug: 'jozi-living-co',
+    ownerId: 'user-s3',
+    description: 'Contemporary urban furniture for Johannesburg apartments and homes. Modular sofas, space-saving storage and designer lighting.',
+    logo: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=200&h=200&fit=crop',
+    coverImage: 'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=1200&h=400&fit=crop',
+    rating: 4.5,
+    reviewCount: 156,
+    productCount: 98,
+    location: {
+      city: 'Johannesburg',
+      suburb: 'Sandton',
+      address: '88 Rivonia Road, Sandton',
+    },
+    distanceKm: 8.7,
+    verified: true,
+    status: 'verified',
+    deliveryAvailable: true,
+    deliveryAreas: ['Johannesburg', 'Sandton', 'Pretoria', 'Midrand', 'Centurion'],
+    openingHours: [
+      { day: 'Mon–Fri', open: '08:30', close: '18:00' },
+      { day: 'Sat', open: '09:00', close: '15:00' },
+      { day: 'Sun', open: '10:00', close: '13:00' },
+    ],
+    phone: '+27 11 555 0672',
+    email: 'hello@joziliving.co.za',
+    responseTime: 'Usually replies within 1 hour',
+    joinedAt: '2022-11-08',
+  },
+  {
+    id: 'biz-004',
+    name: 'Timber & Thread',
+    slug: 'timber-and-thread',
+    ownerId: 'user-s4',
+    description: 'Boutique furniture studio creating custom solid oak and walnut pieces. Made-to-order dining tables, sideboards and bedroom furniture.',
+    logo: 'https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=200&h=200&fit=crop',
+    coverImage: 'https://images.unsplash.com/photo-1538688525198-9b88f6f53126?w=1200&h=400&fit=crop',
+    rating: 4.8,
+    reviewCount: 47,
+    productCount: 32,
+    location: {
+      city: 'Pretoria',
+      suburb: 'Brooklyn',
+      address: '12 Fehrsen Street, Brooklyn',
+    },
+    distanceKm: 15.3,
+    verified: true,
+    status: 'verified',
+    deliveryAvailable: true,
+    deliveryAreas: ['Pretoria', 'Centurion', 'Johannesburg'],
+    openingHours: [
+      { day: 'Mon–Fri', open: '09:00', close: '16:00' },
+      { day: 'Sat', open: 'By appointment', close: '' },
+      { day: 'Sun', open: 'Closed', close: '' },
+    ],
+    phone: '+27 12 555 0311',
+    email: 'studio@timberandthread.co.za',
+    responseTime: 'Usually replies within 6 hours',
+    joinedAt: '2024-01-19',
+  },
+  {
+    id: 'biz-005',
+    name: 'Coastal Comfort',
+    slug: 'coastal-comfort',
+    ownerId: 'user-s5',
+    description: 'Relaxed coastal-style furniture perfect for beach homes and holiday apartments. Weather-resistant outdoor sets and soft indoor seating.',
+    logo: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=200&h=200&fit=crop',
+    coverImage: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1200&h=400&fit=crop',
+    rating: 4.6,
+    reviewCount: 73,
+    productCount: 55,
+    location: {
+      city: 'Durban',
+      suburb: 'Ballito',
+      address: '7 Compensation Beach Road, Ballito',
+    },
+    distanceKm: 18.2,
+    verified: true,
+    status: 'verified',
+    deliveryAvailable: true,
+    deliveryAreas: ['Ballito', 'Umhlanga', 'Durban North', 'La Mercy'],
+    openingHours: [
+      { day: 'Mon–Sat', open: '08:00', close: '17:00' },
+      { day: 'Sun', open: '09:00', close: '13:00' },
+    ],
+    phone: '+27 32 555 0198',
+    email: 'info@coastalcomfort.co.za',
+    responseTime: 'Usually replies within 3 hours',
+    joinedAt: '2023-09-05',
+  },
+  {
+    id: 'biz-006',
+    name: 'Urban Nest Furniture',
+    slug: 'urban-nest',
+    ownerId: 'user-s6',
+    description: 'Affordable modern furniture for first-time homeowners and young professionals. Clean lines, practical storage and stylish finishes.',
+    logo: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=200&h=200&fit=crop',
+    coverImage: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1200&h=400&fit=crop',
+    rating: 4.3,
+    reviewCount: 192,
+    productCount: 145,
+    location: {
+      city: 'Johannesburg',
+      suburb: 'Rosebank',
+      address: '50 Oxford Road, Rosebank',
+    },
+    distanceKm: 6.4,
+    verified: true,
+    status: 'verified',
+    deliveryAvailable: true,
+    deliveryAreas: ['Johannesburg', 'Randburg', 'Sandton', 'Fourways'],
+    openingHours: [
+      { day: 'Mon–Fri', open: '09:00', close: '18:00' },
+      { day: 'Sat', open: '09:00', close: '16:00' },
+      { day: 'Sun', open: '10:00', close: '14:00' },
+    ],
+    phone: '+27 11 555 0845',
+    email: 'shop@urbannest.co.za',
+    responseTime: 'Usually replies within 2 hours',
+    joinedAt: '2022-05-14',
+  },
+  {
+    id: 'biz-007',
+    name: 'Heritage Woods',
+    slug: 'heritage-woods',
+    ownerId: 'user-s7',
+    description: 'Traditional solid wood furniture with a contemporary twist. Dining tables, cabinets and bedroom suites built to last generations.',
+    logo: 'https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=200&h=200&fit=crop',
+    coverImage: 'https://images.unsplash.com/photo-1538688525198-9b88f6f53126?w=1200&h=400&fit=crop',
+    rating: 4.8,
+    reviewCount: 61,
+    productCount: 41,
+    location: {
+      city: 'Cape Town',
+      suburb: 'Observatory',
+      address: '23 Lower Main Road, Observatory',
+    },
+    distanceKm: 9.8,
+    verified: true,
+    status: 'verified',
+    deliveryAvailable: true,
+    deliveryAreas: ['Cape Town', 'Southern Suburbs', 'Northern Suburbs'],
+    openingHours: [
+      { day: 'Mon–Fri', open: '08:00', close: '16:30' },
+      { day: 'Sat', open: '09:00', close: '13:00' },
+      { day: 'Sun', open: 'Closed', close: '' },
+    ],
+    phone: '+27 21 555 0276',
+    email: 'orders@heritagewoods.co.za',
+    responseTime: 'Usually replies within 5 hours',
+    joinedAt: '2023-02-28',
+  },
+  {
+    id: 'biz-008',
+    name: 'Sofa House SA',
+    slug: 'sofa-house-sa',
+    ownerId: 'user-s8',
+    description: 'Specialists in custom sofas and lounge suites. Choose your fabric, configuration and comfort level. Manufactured in Durban.',
+    logo: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=200&h=200&fit=crop',
+    coverImage: 'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=1200&h=400&fit=crop',
+    rating: 4.6,
+    reviewCount: 128,
+    productCount: 78,
+    location: {
+      city: 'Durban',
+      suburb: 'Pinetown',
+      address: '19 Richmond Road, Pinetown',
+    },
+    distanceKm: 11.5,
+    verified: true,
+    status: 'verified',
+    deliveryAvailable: true,
+    deliveryAreas: ['Durban', 'Pinetown', 'Westville', 'Hillcrest', 'Umhlanga'],
+    openingHours: [
+      { day: 'Mon–Fri', open: '08:00', close: '17:00' },
+      { day: 'Sat', open: '08:00', close: '13:00' },
+      { day: 'Sun', open: 'Closed', close: '' },
+    ],
+    phone: '+27 31 555 0394',
+    email: 'sales@sofahouse.co.za',
+    responseTime: 'Usually replies within 1 hour',
+    joinedAt: '2021-09-12',
+  },
+  {
+    id: 'biz-009',
+    name: 'Minimal Home',
+    slug: 'minimal-home',
+    ownerId: 'user-s9',
+    description: 'Scandinavian-inspired minimalist furniture. Light woods, clean silhouettes and functional design for calm living spaces.',
+    logo: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=200&h=200&fit=crop',
+    coverImage: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1200&h=400&fit=crop',
+    rating: 4.7,
+    reviewCount: 54,
+    productCount: 38,
+    location: {
+      city: 'Cape Town',
+      suburb: 'Sea Point',
+      address: '101 Main Road, Sea Point',
+    },
+    distanceKm: 7.2,
+    verified: true,
+    status: 'verified',
+    deliveryAvailable: true,
+    deliveryAreas: ['Cape Town', 'Atlantic Seaboard', 'City Bowl'],
+    openingHours: [
+      { day: 'Mon–Fri', open: '10:00', close: '18:00' },
+      { day: 'Sat', open: '10:00', close: '15:00' },
+      { day: 'Sun', open: 'Closed', close: '' },
+    ],
+    phone: '+27 21 555 0612',
+    email: 'hello@minimalhome.co.za',
+    responseTime: 'Usually replies within 4 hours',
+    joinedAt: '2024-03-01',
+  },
+  {
+    id: 'biz-010',
+    name: 'Garden State Outdoor',
+    slug: 'garden-state-outdoor',
+    ownerId: 'user-s10',
+    description: 'Premium outdoor furniture built for South African weather. Teak, aluminium and all-weather wicker collections for patios and gardens.',
+    logo: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=200&h=200&fit=crop',
+    coverImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&h=400&fit=crop',
+    rating: 4.5,
+    reviewCount: 91,
+    productCount: 52,
+    location: {
+      city: 'Johannesburg',
+      suburb: 'Fourways',
+      address: '34 Witkoppen Road, Fourways',
+    },
+    distanceKm: 14.9,
+    verified: false,
+    status: 'pending',
+    deliveryAvailable: true,
+    deliveryAreas: ['Johannesburg', 'Pretoria', 'Midrand'],
+    openingHours: [
+      { day: 'Mon–Fri', open: '08:00', close: '17:00' },
+      { day: 'Sat', open: '09:00', close: '14:00' },
+      { day: 'Sun', open: 'Closed', close: '' },
+    ],
+    phone: '+27 11 555 0523',
+    email: 'info@gardenstate.co.za',
+    responseTime: 'Usually replies within 8 hours',
+    joinedAt: '2024-08-15',
+  },
+];
+
+export const getBusinessById = (id: string) => businesses.find((b) => b.id === id);
+export const getBusinessBySlug = (slug: string) => businesses.find((b) => b.slug === slug);
+export const getVerifiedBusinesses = () => businesses.filter((b) => b.verified);
+
+const BUSINESS_STORAGE_KEY = 'home_net_businesses';
+
+function isBusinessRecord(value: unknown): value is Business {
+  if (!value || typeof value !== 'object') return false;
+  const record = value as Record<string, unknown>;
+  const location = record.location;
+  return (
+    typeof record.id === 'string' &&
+    typeof record.name === 'string' &&
+    typeof record.slug === 'string' &&
+    typeof record.ownerId === 'string' &&
+    typeof record.email === 'string' &&
+    typeof record.phone === 'string' &&
+    typeof record.status === 'string' &&
+    ['pending', 'verified', 'suspended', 'rejected'].includes(record.status) &&
+    typeof location === 'object' &&
+    location !== null &&
+    typeof (location as Record<string, unknown>).city === 'string' &&
+    typeof (location as Record<string, unknown>).suburb === 'string' &&
+    typeof (location as Record<string, unknown>).address === 'string'
+  );
+}
+
+export function getBusinesses(): Business[] {
+  try {
+    const raw = localStorage.getItem(BUSINESS_STORAGE_KEY);
+    if (!raw) return [...businesses];
+
+    const stored: unknown = JSON.parse(raw);
+    if (!Array.isArray(stored) || !stored.every(isBusinessRecord)) {
+      throw new Error('Saved business list has an invalid format');
+    }
+    return stored;
+  } catch (error) {
+    console.error('Unable to load saved businesses:', error);
+    return [...businesses];
+  }
+}
+
+export function saveBusinesses(nextBusinesses: Business[]) {
+  localStorage.setItem(BUSINESS_STORAGE_KEY, JSON.stringify(nextBusinesses));
+}
