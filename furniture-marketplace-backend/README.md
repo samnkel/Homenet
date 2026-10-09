@@ -46,12 +46,12 @@ Edit `.env`:
 ```env
 DATABASE_URL=postgresql+asyncpg://postgres.XXXX:YOUR_PASSWORD@aws-0-....pooler.supabase.com:5432/postgres
 JWT_SECRET=some-long-random-string-at-least-32-characters
-CORS_ORIGINS=https://homefairy-five.vercel.app,http://localhost:5173,http://localhost:3000,http://127.0.0.1:5173
+CORS_ORIGINS=https://homefairy-five.vercel.app,https://homefairy-omega.vercel.app,http://localhost:5173,http://localhost:3000,http://127.0.0.1:5173
 ```
 
 > **Important:** Use the `postgresql+asyncpg://` scheme (not `postgresql://`) so SQLAlchemy async works.
 
-On Render, set the backend service's `CORS_ORIGINS` environment variable to this comma-separated list (without quotes), then redeploy the backend. Keep the Vercel origin exactly as shown, with no trailing slash.
+On Render, set the backend service's `CORS_ORIGINS` environment variable to this comma-separated list (without quotes), then redeploy the backend. Keep each Vercel origin exactly as shown, with no trailing slash.
 
 ### Configure seller email
 

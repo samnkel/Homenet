@@ -1,6 +1,11 @@
 import type { Business, Product, ProductCategory } from '../types';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api';
+const configuredApiUrl = import.meta.env.VITE_API_URL?.replace(/\/+$/, '');
+const API_URL = configuredApiUrl
+  ? configuredApiUrl.endsWith('/api')
+    ? configuredApiUrl
+    : `${configuredApiUrl}/api`
+  : 'http://localhost:8000/api';
 const TOKEN_KEY = 'furnilocal_token';
 
 export interface ApiUser {
