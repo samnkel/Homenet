@@ -25,11 +25,13 @@ npm run dev
 
 Start the backend separately from `furniture-marketplace-backend` using its README setup, then open http://localhost:5173.
 
-The frontend API base URL defaults to `http://127.0.0.1:8000/api`. To override it, set `VITE_API_URL` in `.env.local`:
+The frontend API base URL defaults to `http://localhost:8000/api`. To override it, set `VITE_API_URL` in `.env.local`:
 
 ```env
-VITE_API_URL=http://127.0.0.1:8000/api
+VITE_API_URL=http://localhost:8000/api
 ```
+
+For Vercel, set `VITE_API_URL` in the project's environment variables to the deployed backend URL, including `/api` (for example, `https://your-backend.onrender.com/api`), then redeploy the frontend. Vite embeds this variable at build time.
 
 For a backend seeded with demo data, use the demo accounts documented in the backend README.
 
