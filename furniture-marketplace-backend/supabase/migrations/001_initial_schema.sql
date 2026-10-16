@@ -1,4 +1,4 @@
--- FurniLocal / Furniture Marketplace — Supabase schema
+-- Zuri Living & Co — Supabase schema
 -- Run in Supabase SQL Editor (or via supabase db push)
 
 -- Enable extensions

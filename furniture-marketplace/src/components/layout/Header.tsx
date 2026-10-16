@@ -127,7 +127,7 @@ export function Header() {
             <span className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full border-2 border-beige bg-gold" />
           </div>
           <span className="font-display text-xl font-semibold tracking-tight text-charcoal">
-            Home-farry &amp; Co
+            Zuri Living &amp; Co
           </span>
         </Link>
 

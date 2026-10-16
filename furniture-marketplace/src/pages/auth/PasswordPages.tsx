@@ -14,7 +14,7 @@ function AuthCard({ title, children }: { title: string; children: React.ReactNod
           <Store className="h-5 w-5" />
         </div>
         <span className="font-display text-2xl font-semibold text-charcoal">
-          Home-farry &amp; Co
+          Zuri Living &amp; Co
         </span>
       </Link>
       <div className="w-full max-w-md rounded-2xl border border-sand bg-white p-8 shadow-elevated">

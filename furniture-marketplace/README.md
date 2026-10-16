@@ -1,4 +1,4 @@
-# Home-farry & Co — Premium Furniture Marketplace
+# Zuri Living & Co — Premium Furniture Marketplace
 
 React frontend for a local furniture marketplace connecting customers, furniture businesses, and platform administrators. It uses the FastAPI backend for products, seller details, authentication, wishlist, orders, and admin/seller operations.
 

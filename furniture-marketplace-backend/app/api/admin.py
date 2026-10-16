@@ -177,10 +177,10 @@ async def enroll_seller(
     try:
         await send_email(
             seller.email,
-            "Your Home-farry & Co seller account",
+            "Your Zuri Living & Co seller account",
             (
                 f"Hello {seller.first_name},\n\n"
-                "An administrator created your Home-farry & Co seller account.\n"
+                "An administrator created your Zuri Living & Co seller account.\n"
                 f"Sign in at {settings.FRONTEND_URL.rstrip('/')}/login with this temporary "
                 f"password: {body.temporary_password}\n\n"
                 "You must choose a new password after signing in. This temporary password "

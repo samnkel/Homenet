@@ -1,4 +1,4 @@
-# Home-farry & Co API — FastAPI + Supabase
+# Zuri Living & Co API — FastAPI + Supabase
 
 Real backend for the furniture marketplace frontend. Replaces mock data and localStorage demo auth with:
 

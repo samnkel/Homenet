@@ -47,7 +47,7 @@ export function RegisterPage() {
           <Store className="h-5 w-5" />
         </div>
         <span className="font-display text-2xl font-semibold text-charcoal">
-          Home-farry &amp; Co
+          Zuri Living &amp; Co
         </span>
       </Link>
 

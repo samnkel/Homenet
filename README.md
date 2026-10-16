@@ -1,1 +1,1 @@
-# Homenet
+# Zuri Living & Co

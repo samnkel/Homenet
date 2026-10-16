@@ -510,7 +510,7 @@ export function CheckoutPage() {
                   <h2 className="font-semibold text-charcoal">Secure payment</h2>
                   <p className="mt-1 text-sm text-muted">
                     You will be redirected to Paystack to choose an available payment method and
-                    complete payment securely. Home-farry &amp; Co never collects or stores your card details.
+                    complete payment securely. Zuri Living &amp; Co never collects or stores your card details.
                   </p>
                   <div className="mt-5 flex items-center gap-3 rounded-lg border border-sand bg-cream/50 p-4">
                     <CreditCard className="h-5 w-5 text-stone" />

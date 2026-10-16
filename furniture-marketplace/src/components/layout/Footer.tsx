@@ -11,7 +11,7 @@ export function Footer() {
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-brown">
                 <Store className="h-4 w-4" />
               </div>
-              <span className="font-display text-lg font-semibold">Home-farry &amp; Co</span>
+              <span className="font-display text-lg font-semibold">Zuri Living &amp; Co</span>
             </div>
             <p className="mt-3 text-sm text-white/70">
               Premium furniture from trusted local businesses across South Africa.
@@ -51,7 +51,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-10 border-t border-white/10 pt-6 text-center text-xs text-white/50">
-          © {new Date().getFullYear()} Home-farry &amp; Co.
+          © {new Date().getFullYear()} Zuri Living &amp; Co.
         </div>
       </div>
     </footer>

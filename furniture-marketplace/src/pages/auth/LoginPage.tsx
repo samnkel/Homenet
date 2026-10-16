@@ -51,7 +51,7 @@ export function LoginPage() {
             <Store className="h-5 w-5" />
           </div>
           <span className="font-display text-2xl font-semibold text-charcoal">
-            Home-farry &amp; Co
+            Zuri Living &amp; Co
           </span>
         </Link>
 
@@ -97,7 +97,7 @@ export function LoginPage() {
           </form>
 
           <p className="mt-6 text-center text-sm text-muted">
-            New to Home-farry &amp; Co?{' '}
+            New to Zuri Living &amp; Co?{' '}
             <Link to="/register" className="font-medium text-brown hover:underline">
               Create a customer account
             </Link>

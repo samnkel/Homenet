@@ -158,7 +158,7 @@ async def forgot_password(body: ForgotPasswordRequest, db: DbSession):
     try:
         await send_email(
             user.email,
-            "Reset your Home-farry & Co password",
+            "Reset your Zuri Living & Co password",
             (
                 f"Hello {user.first_name},\n\n"
                 f"Use this link to reset your password. It expires in 20 minutes "
