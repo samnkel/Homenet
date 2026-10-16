@@ -1,5 +1,4 @@
 import logging
-import smtplib
 from datetime import datetime, timedelta, timezone
 
 from fastapi import APIRouter, Depends, HTTPException, status
@@ -186,12 +185,14 @@ async def enroll_seller(
                 "You must choose a new password after signing in. This temporary password "
                 "expires in 24 hours."
             ),
+            action_url=f"{settings.FRONTEND_URL.rstrip('/')}/login",
+            action_text="Sign in",
         )
-    except (OSError, RuntimeError, smtplib.SMTPException) as error:
+    except (OSError, RuntimeError) as error:
         logger.exception("Unable to send seller enrollment email")
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-            detail="Seller invitation email could not be sent. Check the Gmail SMTP configuration.",
+            detail="Seller invitation email could not be sent. Check the EmailJS configuration.",
         ) from error
 
     return _business_out(b, owner_name=f"{seller.first_name} {seller.last_name}")

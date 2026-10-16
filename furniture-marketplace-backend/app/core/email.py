@@ -1,29 +1,51 @@
-import asyncio
-import smtplib
-import ssl
-from email.message import EmailMessage
+import httpx
 
 from app.core.config import get_settings
 
+EMAILJS_SEND_URL = "https://api.emailjs.com/api/v1.0/email/send"
 
-def _send_email_sync(recipient: str, subject: str, body: str) -> None:
+
+async def send_email(
+    recipient: str,
+    subject: str,
+    body: str,
+    *,
+    action_url: str = "",
+    action_text: str = "",
+) -> None:
     settings = get_settings()
-    sender = settings.SMTP_FROM or settings.SMTP_USERNAME
-    if not settings.SMTP_USERNAME or not settings.SMTP_PASSWORD or not sender:
-        raise RuntimeError("Gmail SMTP is not configured")
+    if not all(
+        (
+            settings.EMAILJS_SERVICE_ID,
+            settings.EMAILJS_TEMPLATE_ID,
+            settings.EMAILJS_PUBLIC_KEY,
+            settings.EMAILJS_PRIVATE_KEY,
+        )
+    ):
+        raise RuntimeError("EmailJS is not configured")
 
-    message = EmailMessage()
-    message["From"] = sender
-    message["To"] = recipient
-    message["Subject"] = subject
-    message.set_content(body)
+    payload = {
+        "service_id": settings.EMAILJS_SERVICE_ID,
+        "template_id": settings.EMAILJS_TEMPLATE_ID,
+        "user_id": settings.EMAILJS_PUBLIC_KEY,
+        "accessToken": settings.EMAILJS_PRIVATE_KEY,
+        "template_params": {
+            "to_email": recipient,
+            "subject": subject,
+            "message": body,
+            "action_url": action_url,
+            "action_text": action_text,
+        },
+    }
 
-    context = ssl.create_default_context()
-    with smtplib.SMTP(settings.SMTP_HOST, settings.SMTP_PORT, timeout=20) as server:
-        server.starttls(context=context)
-        server.login(settings.SMTP_USERNAME, settings.SMTP_PASSWORD)
-        server.send_message(message)
-
-
-async def send_email(recipient: str, subject: str, body: str) -> None:
-    await asyncio.to_thread(_send_email_sync, recipient, subject, body)
+    try:
+        async with httpx.AsyncClient(timeout=20) as client:
+            response = await client.post(EMAILJS_SEND_URL, json=payload)
+            response.raise_for_status()
+    except httpx.HTTPStatusError as error:
+        response_detail = error.response.text[:500]
+        raise RuntimeError(
+            f"EmailJS rejected the request ({error.response.status_code}): {response_detail}"
+        ) from error
+    except httpx.HTTPError as error:
+        raise RuntimeError("EmailJS request failed before a response was received") from error

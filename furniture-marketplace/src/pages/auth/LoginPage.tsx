@@ -51,14 +51,14 @@ export function LoginPage() {
             <Store className="h-5 w-5" />
           </div>
           <span className="font-display text-2xl font-semibold text-charcoal">
-            Zuri Living &amp; Co
+            uzuri-Living &amp; Co
           </span>
         </Link>
 
         <div className="w-full max-w-md rounded-2xl border border-sand bg-white p-8 shadow-elevated">
           <h1 className="font-display text-2xl font-semibold text-charcoal">Sign in</h1>
           <p className="mt-1 text-sm text-muted">
-            Sign in to your portal. Browse as a guest; a customer account is required to checkout.
+            Sign in to your account. Browse as a guest; a customer account is required to checkout.
           </p>
 
           <form onSubmit={handleSubmit} className="mt-6 space-y-4">
@@ -79,7 +79,7 @@ export function LoginPage() {
                   to="/forgot-password"
                   className="text-xs font-medium text-brown hover:underline"
                 >
-                  Forgot seller password?
+                  Forgot password?
                 </Link>
               </div>
               <input
@@ -97,7 +97,7 @@ export function LoginPage() {
           </form>
 
           <p className="mt-6 text-center text-sm text-muted">
-            New to Zuri Living &amp; Co?{' '}
+            New to uzuri-Living &amp; Co?{' '}
             <Link to="/register" className="font-medium text-brown hover:underline">
               Create a customer account
             </Link>

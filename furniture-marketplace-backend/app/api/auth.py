@@ -1,7 +1,6 @@
 import hashlib
 import logging
 import secrets
-import smtplib
 from datetime import datetime, timedelta, timezone
 from urllib.parse import quote
 
@@ -165,12 +164,14 @@ async def forgot_password(body: ForgotPasswordRequest, db: DbSession):
                 f"and can only be used once:\n\n{reset_url}\n\n"
                 "If you did not request this, you can ignore this email."
             ),
+            action_url=reset_url,
+            action_text="Reset password",
         )
-    except (OSError, RuntimeError, smtplib.SMTPException) as error:
+    except (OSError, RuntimeError) as error:
         logger.exception("Unable to send password reset email")
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-            detail="Password reset email could not be sent. Check the Gmail SMTP configuration.",
+            detail="Password reset email could not be sent. Check the EmailJS configuration.",
         ) from error
 
     return {"message": "If the account exists, a reset link has been sent."}

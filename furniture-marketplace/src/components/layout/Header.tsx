@@ -127,7 +127,7 @@ export function Header() {
             <span className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full border-2 border-beige bg-gold" />
           </div>
           <span className="font-display text-xl font-semibold tracking-tight text-charcoal">
-            Zuri Living &amp; Co
+            uzuri-Living &amp; Co
           </span>
         </Link>
 
@@ -281,7 +281,7 @@ export function Header() {
               </div>
             </div>
           ) : (
-            <Link to="/login?role=seller" className="hidden sm:block">
+            <Link to="/login" className="hidden sm:block">
               <Button variant="outline" size="sm">
                 Sign in
               </Button>
@@ -376,7 +376,7 @@ export function Header() {
 
       <div
         className={cn(
-          'fixed inset-0 top-[57px] z-40 bg-beige transition-transform duration-300 lg:hidden',
+          'fixed inset-0 top-[57px] z-40 border-t border-sand bg-ivory text-charcoal shadow-elevated transition-transform duration-300 lg:hidden',
           mobileOpen ? 'translate-x-0' : '-translate-x-full'
         )}
       >
@@ -417,28 +417,13 @@ export function Header() {
           </NavLink>
           <hr className="my-2 border-sand" />
           <Link
-            to="/login?role=seller"
+            to="/login"
             onClick={() => setMobileOpen(false)}
             className="rounded-lg px-3 py-2.5 text-sm font-medium text-charcoal hover:bg-cream"
           >
             Sign in
           </Link>
-          <div className="flex gap-3 px-3 text-sm">
-            <Link
-              to="/login?role=seller"
-              onClick={() => setMobileOpen(false)}
-              className="text-brown hover:underline"
-            >
-              Seller portal
-            </Link>
-            <Link
-              to="/login?role=admin"
-              onClick={() => setMobileOpen(false)}
-              className="text-brown hover:underline"
-            >
-              Admin portal
-            </Link>
-          </div>
+
         </div>
       </div>
     </header>

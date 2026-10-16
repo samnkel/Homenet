@@ -53,28 +53,27 @@ CORS_ORIGINS=https://homefairy-five.vercel.app,https://homefairy-omega.vercel.ap
 
 On Render, set the backend service's `CORS_ORIGINS` environment variable to this comma-separated list (without quotes), then redeploy the backend. Keep each Vercel origin exactly as shown, with no trailing slash.
 
-### Configure seller email
+### Configure email with EmailJS
 
-Admin seller enrollment and account password resets send email through Gmail SMTP. Use a dedicated Gmail account with 2-Step Verification enabled, then create a Google App Password. Set these values in the backend `.env` (never in the frontend environment):
+Admin seller enrollment and password resets send email through EmailJS. Connect an email service using the address you want in the From field, then create a template whose recipient is `{{to_email}}`, subject is `{{subject}}`, and content is `{{message}}`. For its button, set the URL to `{{action_url}}` and label to `{{action_text}}`; reset emails get a unique reset link, and seller invitations get the sign-in page. Set these values in the backend `.env` only (never in the frontend environment):
 
 ```env
-SMTP_HOST=smtp.gmail.com
-SMTP_PORT=587
-SMTP_USERNAME=your-gmail-address@gmail.com
-SMTP_PASSWORD=your-16-character-app-password
-SMTP_FROM=your-gmail-address@gmail.com
+EMAILJS_SERVICE_ID=service_xxxxxxx
+EMAILJS_TEMPLATE_ID=template_xxxxxxx
+EMAILJS_PUBLIC_KEY=your_emailjs_public_key
+EMAILJS_PRIVATE_KEY=your_emailjs_private_key
 FRONTEND_URL=http://127.0.0.1:5173
 PAYSTACK_SECRET_KEY=sk_test_your_paystack_secret_key
 ```
 
-Use the Gmail App Password, not the account's normal password. Keep it private and restart the backend after changing `.env`. Seller invitations include a generated password that expires in 24 hours and must be changed at first sign-in. Password-reset links for active accounts expire after 20 minutes and can only be used once. If mail delivery is not configured or fails, seller enrollment or password reset reports an explicit error rather than silently claiming success.
+Keep the EmailJS private key secret and restart or redeploy the backend after changing environment variables. Seller invitations include a generated password that expires in 24 hours and must be changed at first sign-in. Password-reset links for active accounts expire after 20 minutes and can only be used once. If mail delivery is not configured or fails, seller enrollment or password reset reports an explicit error rather than silently claiming success.
 
 Administrator accounts are provisioned outside the public signup flow. Existing admin accounts and credentials remain in the database and can continue signing in through `/login`.
 
 ### Production security checklist
 
 - Set `ENVIRONMENT=production` and inject a unique, randomly generated `JWT_SECRET` of at least 32 characters. The API refuses to start in production with a short or example secret. Rotating this secret signs out all users.
-- Keep `.env` files out of source control. Use deployment environment secrets for database, Supabase, SMTP, and payment credentials; rotate any credentials that have been shared or exposed.
+- Keep `.env` files out of source control. Use deployment environment secrets for database, Supabase, EmailJS, and payment credentials; rotate any credentials that have been shared or exposed.
 - Password resets invalidate existing access tokens. Apply the Supabase migration `004_user_token_version.sql` when managing schema with migrations; the application also adds the column during startup.
 - Serve the frontend and API over HTTPS and set `CORS_ORIGINS` to only the production frontend origins.
 
