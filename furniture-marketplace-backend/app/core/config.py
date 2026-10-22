@@ -16,6 +16,8 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 7  # 7 days
 
     CORS_ORIGINS: str = (
+        "https://uzuri-living.vercel.app,"
+        "https://homefairy-sand.vercel.app,"
         "https://homefairy-five.vercel.app,"
         "https://homefairy-omega.vercel.app,"
         "http://localhost:5173,"
