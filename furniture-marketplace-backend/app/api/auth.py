@@ -171,7 +171,7 @@ async def forgot_password(body: ForgotPasswordRequest, db: DbSession):
         logger.exception("Unable to send password reset email")
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-            detail="Password reset email could not be sent. Check the EmailJS configuration.",
+            detail="Password reset email could not be sent. Check the SMTP configuration and backend logs.",
         ) from error
 
     return {"message": "If the account exists, a reset link has been sent."}

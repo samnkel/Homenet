@@ -192,7 +192,7 @@ async def enroll_seller(
         logger.exception("Unable to send seller enrollment email")
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-            detail="Seller invitation email could not be sent. Check the EmailJS configuration.",
+            detail="Seller invitation email could not be sent. Check the SMTP configuration and backend logs.",
         ) from error
 
     return _business_out(b, owner_name=f"{seller.first_name} {seller.last_name}")

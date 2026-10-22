@@ -1,5 +1,5 @@
 from functools import lru_cache
-from pydantic import Field, model_validator
+from pydantic import Field, field_validator, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -27,11 +27,21 @@ class Settings(BaseSettings):
     SUPABASE_ANON_KEY: str = ""
     SUPABASE_SERVICE_ROLE_KEY: str = ""
 
-    EMAILJS_SERVICE_ID: str = ""
-    EMAILJS_TEMPLATE_ID: str = ""
-    EMAILJS_PUBLIC_KEY: str = ""
-    EMAILJS_PRIVATE_KEY: str = ""
+    SMTP_HOST: str = ""
+    SMTP_PORT: int = Field(default=587, ge=1, le=65535)
+    SMTP_USERNAME: str = ""
+    SMTP_PASSWORD: str = ""
+    SMTP_FROM_EMAIL: str = ""
+    SMTP_USE_TLS: bool = True
     FRONTEND_URL: str = "http://127.0.0.1:5173"
+
+    @field_validator("FRONTEND_URL", mode="before")
+    @classmethod
+    def normalize_frontend_url(cls, value: object) -> str:
+        frontend_url = str(value or "").strip().rstrip("/")
+        if not frontend_url or frontend_url in {"http:", "https:"}:
+            return "http://127.0.0.1:5173"
+        return frontend_url
 
     PAYSTACK_SECRET_KEY: str = ""
     PAYSTACK_PAYMENT_EXPIRY_MINUTES: int = Field(default=30, ge=1)
